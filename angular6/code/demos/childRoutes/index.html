@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Manage</title>
+        <!-- Set the base href, demo only! In your app: <base href="/"> -->
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap theme-->
+    <link href="../../../../styles/paper.css" rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="../../../../styles/font-awesome.min.css">
+    <!--Application Styles-->
+    <link href="../../../../styles/app.styles.css" rel="stylesheet">
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="/node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="/node_modules/zone.js/dist/zone.js"></script>
+    <script src="/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="/systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function(err){ console.error(err);  });
+    </script>
+    <style>
+        .container{
+            margin-top: 30px;
+        }
+    </style>
+
+
+</head>
+
+<!-- 3. Display the application -->
+<body>
+    <div class="container">
+        <my-app>Loading...</my-app>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<form *ngIf="contractType.editing">
+<div class="form-group" [class.has-error]="modelState.invalid && modelState.dirty">
+<input  autofocus type="text" class="form-control"
+       (keyup.enter)="save(modelState)"
+       (keydown.escape)="cancelEdit()"
+       (blur)="stopEdit()" required name="contractType" [ngModel]="contractType.name" #modelState="ngModel">
+ <br>
+
+<div [hidden]="modelState.valid || modelState.pristine" class="alert alert-danger">
+    Name is required.
+</div>
+</div>
+</form>

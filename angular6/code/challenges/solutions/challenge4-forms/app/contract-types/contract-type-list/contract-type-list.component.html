@@ -1,0 +1,12 @@
+<h3>Contract Types</h3>
+
+<div class="col-md-6">
+<ul class="list-group">
+    <li *ngFor="let contractType of ContractTypes" class="list-group-item">
+
+            <contract-type-detail [contractType]="contractType"></contract-type-detail>
+            <contract-type-input [contractType]="contractType"></contract-type-input>
+
+    </li>
+</ul>
+</div>

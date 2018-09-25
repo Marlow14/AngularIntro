@@ -1,0 +1,17 @@
+<form class="project-form " *ngIf="project.editing" >
+        <div class="thumbnail">
+
+            <div class="form-group">
+            <label>Project Name</label>
+                <input type="text" name="name"
+                       placeholder="enter name" autofocus
+                       class="form-control"
+                       [(ngModel)]="project.name">
+            </div>
+            <div class="form-group">
+                <a href="" (click)="onCancel(project, $event)">cancel</a>
+            </div>
+
+
+        </div>
+</form>

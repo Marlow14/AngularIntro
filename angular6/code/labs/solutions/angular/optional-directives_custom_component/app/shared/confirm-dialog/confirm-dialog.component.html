@@ -1,0 +1,19 @@
+<div class="modal" [style.display]="hidden? 'none':'block'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title">{{message}}</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="onCancel()"
+                        data-dismiss="modal">No</button>
+                <button type="button" (click)="onConfirm()"
+                        class="btn btn-primary">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>

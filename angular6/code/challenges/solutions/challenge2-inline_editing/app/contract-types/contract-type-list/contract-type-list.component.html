@@ -1,0 +1,16 @@
+<h3>Contract Types</h3>
+
+<div class="col-md-6">
+<ul class="list-group">
+    <li *ngFor="let contractType of ContractTypes" class="list-group-item">
+        <label *ngIf="!contractType.editing" (click)="edit(contractType)">
+            {{contractType.name}}
+        </label>
+        <input *ngIf="contractType.editing" autofocus type="text" class="form-control"
+               (keyup.enter)="save(contractType)"
+               (keydown.escape)="cancelEdit(contractType)"
+               (blur)="stopEdit(contractType)">
+
+    </li>
+</ul>
+</div>

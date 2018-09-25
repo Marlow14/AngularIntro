@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="upgrading">Upgrading</h1>
+<p>This tutorial walks you through upgrading the <code>Phonecat</code> app written in AngularJS to Angular using the Angular CLI.</p>
+<h2 id="step-1-generate-new-angular-project">Step 1: Generate New Angular Project</h2>
+<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 1.7.4 using the following steps.</p>
+<pre class="hljs"><code><div>ng new upgrading
+<span class="hljs-built_in">cd</span> upgrading
+</div></code></pre>
+<p><em>Note that you will not need to do these steps for the tutorial as the project has already been created.</em>
+<strong>Instead:</strong></p>
+<ol>
+<li>
+<p>Open a command-prompt or terminal to the <code>upgrading</code> folder.</p>
+</li>
+<li>
+<p>Checkout the branch <code>step-1-new-angular-project</code></p>
+</li>
+</ol>
+<pre class="hljs"><code><div>git checkout step-1-new-angular-project -f
+git clean -fd
+</div></code></pre>
+<ol start="3">
+<li>Create a new git branch of the project to work in and check it out.</li>
+</ol>
+<pre class="hljs"><code><div>git branch working
+git checkout working
+</div></code></pre>
+<ol start="4">
+<li>Install the dependencies (JavaScript libraries).</li>
+</ol>
+<pre class="hljs"><code><div>npm install
+</div></code></pre>
+<ol start="5">
+<li>Serve the Angular CLI project to verify it is working</li>
+</ol>
+<pre class="hljs"><code><div>npm start -- -o
+</div></code></pre>
+<p>A browser should open and show the message:</p>
+<pre class="hljs"><code><div>Welcome to app!
+</div></code></pre>
+<p><em>Using the existing directory has the following advantages</em></p>
+<ul>
+<li>The <code>angular-cli</code> does not need to be installed globally.</li>
+<li>This readme and the associated screenshots are available in the project.</li>
+<li>We can use git to <code>diff</code> our <code>working</code> branch code with the completed code for each step in the process.</li>
+</ul>
+<p>To see the available branches.</p>
+<pre class="hljs"><code><div>git branch
+</div></code></pre>
+<h2 id="step-2-create-angular-and-angularjs-folders">Step 2: Create Angular and AngularJS folders</h2>
+<ol>
+<li>
+<p>In <code>src</code> folder create two folders <code>angular</code> and <code>angularjs</code>.</p>
+</li>
+<li>
+<p>Move everything inside <code>src</code> except the <code>angular</code> and <code>angularjs</code> folders created in the prior step into the <code>angular</code> folder.</p>
+</li>
+<li>
+<p>Copy these four files from <code>src\angular\app</code> back out into <code>src</code>.</p>
+<ul>
+<li>favicon.ico</li>
+<li>index.html</li>
+<li>tsconfig.app.json</li>
+<li>tsconfig.spec.json</li>
+</ul>
+</li>
+</ol>
+<div style="page-break-after: always;"></div>
+<h2 id="step-3-copy-angularjs-project">Step 3: Copy AngularJS project</h2>
+<ol>
+<li>Note that there is already a <code>bower_components</code> folder in <code>angular-phonecat\app</code>.</li>
+</ol>
+<p><em>If you download your own copy of angular-phonecat you would need to first run <code>npm install</code> which creates this folder.</em></p>
+<ol start="2">
+<li>Copy the contents of <code>angular-phonecat\app</code> into <code>upgrading\src\angularjs</code>.</li>
+<li>Merge <code>upgrading\src\angularjs\index.html</code> into <code>upgrading\src\index.html</code> as shown below:</li>
+</ol>
+<pre class="hljs"><code><div> &lt;!doctype html&gt;
+ &lt;html lang="en"&gt;
+ &lt;head&gt;
+   &lt;meta charset="utf-8"&gt;
+   &lt;title&gt;Upgrading&lt;/title&gt;
+   &lt;base href="/"&gt;
+
+   &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+   &lt;link rel="icon" type="image/x-icon" href="favicon.ico"&gt;
+
+<span class="hljs-addition">+  &lt;link rel="stylesheet" href="angularjs/bower_components/bootstrap/dist/css/bootstrap.css" /&gt;</span>
+<span class="hljs-addition">+  &lt;link rel="stylesheet" href="angularjs/app.css" /&gt;</span>
+<span class="hljs-addition">+  &lt;link rel="stylesheet" href="angularjs/app.animations.css" /&gt;</span>
+<span class="hljs-addition">+</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/bower_components/jquery/dist/jquery.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/bower_components/angular/angular.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/bower_components/angular-animate/angular-animate.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/bower_components/angular-resource/angular-resource.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/bower_components/angular-route/angular-route.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/app.module.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/app.config.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/app.animations.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/core/core.module.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/core/checkmark/checkmark.filter.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/core/phone/phone.module.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/core/phone/phone.service.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/phone-list/phone-list.module.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/phone-list/phone-list.component.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/phone-detail/phone-detail.module.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-addition">+  &lt;script src="angularjs/phone-detail/phone-detail.component.js"&gt;&lt;/script&gt;</span>
+
+ &lt;/head&gt;
+<span class="hljs-deletion">-&lt;body&gt;</span>
+<span class="hljs-addition">+&lt;body ng-app="phonecatApp"&gt;</span>
+
+<span class="hljs-addition">+  &lt;div class="view-container"&gt;</span>
+<span class="hljs-addition">+    &lt;div ng-view class="view-frame"&gt;&lt;/div&gt;</span>
+<span class="hljs-addition">+  &lt;/div&gt;</span>
+
+   &lt;app-root&gt;&lt;/app-root&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+</div></code></pre>
+<p>When finished with the merge delete <code>upgrading\src\angularjs\index.html</code>.</p>
+<div style="page-break-after: always;"></div>
+<ol start="4">
+<li>Modify <code>.angular-cli.json</code> to recognize the new directory structure.</li>
+</ol>
+<pre class="hljs"><code><div> {
+       "root": "src",
+       "outDir": "dist",
+<span class="hljs-deletion">-      "assets": [</span>
+<span class="hljs-deletion">-        "assets",</span>
+<span class="hljs-deletion">-        "favicon.ico"</span>
+<span class="hljs-deletion">-      ],</span>
+<span class="hljs-addition">+      "assets": ["angularjs", "assets", "favicon.ico"],</span>
+       "index": "index.html",
+<span class="hljs-deletion">-      "main": "main.ts",</span>
+<span class="hljs-deletion">-      "polyfills": "polyfills.ts",</span>
+<span class="hljs-deletion">-      "test": "test.ts",</span>
+<span class="hljs-addition">+      "main": "angular/main.ts",</span>
+<span class="hljs-addition">+      "polyfills": "angular/polyfills.ts",</span>
+<span class="hljs-addition">+      "test": "angular/test.ts",</span>
+       "tsconfig": "tsconfig.app.json",
+       "testTsconfig": "tsconfig.spec.json",
+       "prefix": "app",
+<span class="hljs-deletion">-      "styles": [</span>
+<span class="hljs-deletion">-        "styles.css"</span>
+<span class="hljs-deletion">-      ],</span>
+<span class="hljs-addition">+      "styles": ["angular/styles.css"],</span>
+       "scripts": [],
+       "environmentSource": "environments/environment.ts",
+       "environments": {
+<span class="hljs-deletion">-        "dev": "environments/environment.ts",</span>
+<span class="hljs-deletion">-        "prod": "environments/environment.prod.ts"</span>
+<span class="hljs-addition">+        "dev": "angular/environments/environment.ts",</span>
+<span class="hljs-addition">+        "prod": "angular/environments/environment.prod.ts"</span>
+       }
+     }
+   ],
+</div></code></pre>
+<ol start="5">
+<li>Append <code>angularjs/</code> to the paths in these files in the <code>src\angularjs</code> directory.</li>
+</ol>
+<ul>
+<li>
+<p><code>core\phone\phone.service.js</code></p>
+<ul>
+<li>change <s><code>&quot;phones/:phoneId.json&quot;,</code></s> to <code>&quot;angularjs/phones/:phoneId.json&quot;,</code></li>
+</ul>
+</li>
+<li>
+<p><code>phone-list\phone-list.component.js</code></p>
+<ul>
+<li>change <s><code>templateUrl: &quot;phone-list/phone-list.template.html&quot;,</code></s> to <code>templateUrl: &quot;angularjs/phone-list/phone-list.template.html&quot;,</code></li>
+</ul>
+</li>
+<li>
+<p><code>phone-list\phone-list.template.html</code></p>
+<ul>
+<li>change <s><code>&lt;img ng-src=&quot;{{phone.imageUrl}}&quot; alt=&quot;{{phone.name}}&quot; /&gt;</code></s> to <code>&lt;img ng-src=&quot;angularjs/{{phone.imageUrl}}&quot; alt=&quot;{{phone.name}}&quot; /&gt;</code></li>
+</ul>
+</li>
+<li>
+<p><code>phone-detail\phone-detail.component.js</code></p>
+<ul>
+<li>change <s><code>templateUrl: &quot;phone-detail/phone-detail.template.html&quot;,</code></s> to <code>templateUrl: &quot;angularjs/phone-detail/phone-detail.template.html&quot;,</code></li>
+</ul>
+</li>
+<li>
+<p><code>phone-detail.template.html</code></p>
+<ul>
+<li>change <s><code>{{img}}</code></s> to <code>angularjs/{{img}}</code>
+<em>Note there are two instances of <code>{{img}}</code> in the template on line 2 and 12.</em></li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li>If not already running, run the application</li>
+</ol>
+<pre class="hljs"><code><div>npm start -- -o
+</div></code></pre>
+<p>You should see both the Angular and AngularJS application rendered when the page loads as shown below.</p>
+<ul>
+<li><em>Note: You will need to scroll down the page to see the Angular application</em></li>
+</ul>
+<p><img src="readme-assets/together.png" alt="Figure 1"></p>
+<p><em>As those two applications are bootstrapped separately, they are not able to communicate with each other or to exchange services and components. To make this work, we have to bootstrap them together as a hybrid application. The next section show how to do this.</em></p>
+<div style="page-break-after: always;"></div>
+<h2 id="step-4-bootstrap-angularjs-angular-hybrid-application">Step 4: Bootstrap AngularJS &amp; Angular Hybrid Application</h2>
+<ol>
+<li>To bootstrap one application with both AngularJS and Angular we can leverage <code>ngUpgrade</code> which is part of Angular:</li>
+</ol>
+<p>Open another command-prompt or terminal to the <code>upgrading</code> directory and run this command.</p>
+<pre class="hljs"><code><div>npm install @angular/upgrade@5.2.0 --save
+</div></code></pre>
+<ol start="2">
+<li>In <code>index.html</code></li>
+</ol>
+<p>We don't want to bootstrap the Angular application on its own at this point, so we will comment out it's root component in <code>src\index.html</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-comment">&lt;!-- &lt;app-root&gt;&lt;/app-root&gt; --&gt;</span>
+</div></code></pre>
+<ol start="3">
+<li>In <code>angular\app\app.module.ts</code> comment out the bootstrap of the <code>AppComponent</code></li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-comment">// bootstrap: [AppComponent]</span>
+</div></code></pre>
+<ol start="4">
+<li>To prevent bootstrapping the AngularJS application remove the <code>ng-app</code> directive.</li>
+</ol>
+<ul>
+<li>Remove: &lt;body <s>ng-app=&quot;phonecatApp&quot;</s>&gt;</li>
+</ul>
+<ol start="5">
+<li>Add the <code>UpgradeModule</code> to the list of Angular module imports.</li>
+</ol>
+<p><code>angular\app\app.module.ts</code></p>
+<pre class="hljs"><code><div><span class="hljs-addition">+ import { UpgradeModule } from "@angular/upgrade/static";</span>
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule,
+<span class="hljs-addition">+ UpgradeModule],</span>
+  providers: []
+  // bootstrap: [AppComponent]
+})
+</div></code></pre>
+<p>...and bootstrap the hybrid application in the <code>AppModule</code> class.</p>
+<pre class="hljs"><code><div>...
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppModule {
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> upgrade: UpgradeModule</span>) {}
+  ngDoBootstrap() {
+    <span class="hljs-keyword">this</span>.upgrade.bootstrap(<span class="hljs-built_in">document</span>.body, [<span class="hljs-string">"phonecatApp"</span>], { strictDi: <span class="hljs-literal">true</span> });
+  }
+}
+</div></code></pre>
+<ol start="6">
+<li>
+<p>The Angular application needs to be restarted to recognize the <code>UpgradeModule</code> and bootstrap itself appropriately.
+Use Ctrl+C (Windows) or Cmd+C (Mac) to stop the web server.</p>
+</li>
+<li>
+<p>Run the application.</p>
+</li>
+</ol>
+<pre class="hljs"><code><div>npm start -- -o
+</div></code></pre>
+<p>You should see just AngularJS application rendered when the page loads as shown below.</p>
+<p><img src="readme-assets/justangularjs.png" alt="Figure 2"></p>
+<ul>
+<li><em>Note: Even though we only see the AngularJS application it is a hybrid application. To prove this, the next section shows how to use an Angular component within the shown AngularJS component</em></li>
+</ul>
+<div style="page-break-after: always;"></div>
+<h2 id="step-5-downgrading-an-angular-component">Step 5: Downgrading An Angular Component</h2>
+<ol>
+<li>
+<p>Create file <code>src\angular\app\widget\widget.componentfini.ts</code>. Note that you will need to create the <code>widget</code> directory.</p>
+</li>
+<li>
+<p>Add this code to create an <code>Angular</code> component</p>
+</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/core"</span>;
+<span class="hljs-meta">@Component</span>({
+  selector: <span class="hljs-string">"app-widget"</span>,
+  template: <span class="hljs-string">`
+    &lt;h3&gt;Angular Widget&lt;/h3&gt;
+  `</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> WidgetComponent {}
+</div></code></pre>
+<ol start="3">
+<li>In <code>src\app\angular\app.module.ts</code>, downgrade the <em>Angular</em> <code>WidgetComponent</code> to an <em>AngularJS</em> component</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { UpgradeModule, downgradeComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/upgrade/static"</span>;
+<span class="hljs-keyword">import</span> { WidgetComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">"./widget/widget.component"</span>;
+
+<span class="hljs-keyword">declare</span> <span class="hljs-keyword">var</span> angular: <span class="hljs-built_in">any</span>;
+angular
+  .module(<span class="hljs-string">"phonecatApp"</span>)
+  .directive(<span class="hljs-string">"appWidget"</span>, downgradeComponent({ component: WidgetComponent }));
+</div></code></pre>
+<p><em>Be sure to use camel-case the <code>appWidget</code> when registering the directive name above. This translates to the _dasherized</em> syntax: <code>&lt;app-widget&gt;&lt;/app-widget</code> in the template._</p>
+<p>...and add the <code>WidgetComponent</code> to the <code>AppModule</code> declarations and as an entry component.</p>
+<pre class="hljs"><code><div>@NgModule({
+  declarations: [AppComponent,
+<span class="hljs-addition">+ WidgetComponent],</span>
+  imports: [BrowserModule, UpgradeModule],
+<span class="hljs-addition">+ entryComponents: [WidgetComponent],</span>
+  providers: []
+  // bootstrap: [AppComponent]
+})
+export class AppModule {
+  ...
+</div></code></pre>
+<p><em>As you see in this sample, the downgraded component is registered as a <code>directive</code> within the AngularJS module. For this, we can leverage the global angular variable. In order to tell TypeScript about this preexisting variable, we have to use the <code>declare</code> keyword.</em></p>
+<ol start="4">
+<li>After this, we can call the Angular Component within an AngularJS template. Place the widget below the select list for sorting phones.</li>
+</ol>
+<p><code>src/angularjs/phone-list/phone-list.template.html</code></p>
+<pre class="hljs"><code><div>...
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+
+ <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Angular Component --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">app-widget</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-widget</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+<ol start="5">
+<li>Open the application in the browser and you should see the <em>Angular</em> widget hosted inside the <em>AngularJS</em> component as shown below.</li>
+</ol>
+<p><img src="readme-assets/widget.png" alt="Angular Widget"></p>
+<div style="page-break-after: always;"></div>
+<h2 id="step-6-upgrading-an-angularjs-service">Step 6: Upgrading an AngularJS Service</h2>
+<p>In order to use an existing AngularJS service within a new Angular Component, we have to upgrade it.</p>
+<ol>
+<li>We have to create an Angular service provider which uses a factory. This factory gets a reference to the AngularJS injector ($injector) and uses it to obtain the service in question. We do this in a new file <code>phone.service.ts</code>. Create the file at the path shown below and add the code to the new file.</li>
+</ol>
+<p><code>src\angular\app\phones\shared\phone.service.ts</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { InjectionToken } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/core"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> PHONE_SERVICE = <span class="hljs-keyword">new</span> InjectionToken&lt;<span class="hljs-built_in">any</span>&gt;(<span class="hljs-string">"PHONE_SERVICE"</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPhoneService</span>(<span class="hljs-params">injector</span>) </span>{
+  <span class="hljs-keyword">return</span> injector.get(<span class="hljs-string">"Phone"</span>);
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> phoneServiceProvider = {
+  provide: PHONE_SERVICE,
+  useFactory: createPhoneService,
+  deps: [<span class="hljs-string">"$injector"</span>]
+};
+</div></code></pre>
+<p><em>Normally, we could use the service's type as the dependency injection token defined by the provide property. But in this case we explicitly decided to not upgrade the existing AngularJS 1.x code to TypeScript and so we don't have any type for it. Because of this, this sample uses a constant based Token called <code>PHONE_SERVICE</code>. For such tokens Angular 4+ provides the type <code>InjectionToken</code>. In Angular 2 we would use <code>OpaqueToken</code> instead. The <code>InjectionToken</code> takes a type parameter which identifies the type of the service it is pointing to. As mentioned, we don't have a type for this service and so we are just going with <code>any</code>. Note: the <code>injector</code> is getting the phone from <code>src\angularjs\core\phone\phone.service.js</code>.</em></p>
+<p>2.Register the service provider with the Angular module.</p>
+<p><code>src\angular\app\app.module.ts</code></p>
+<pre class="hljs"><code><div>[...]
+<span class="hljs-keyword">import</span> { phoneServiceProvider } <span class="hljs-keyword">from</span> <span class="hljs-string">"ng2/app/phone.service"</span>;
+
+[...]
+
+<span class="hljs-meta">@NgModule</span>({
+  [...],
+  providers: [
+    phoneServiceProvider
+  ]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppModule {
+  [...]
+}
+</div></code></pre>
+<ol start="3">
+<li>Inject the upgraded <code>phoneService</code> into the Angular <code>WidgetComponent</code> and show a count of the phones.</li>
+</ol>
+<p><code>src\angular\app\widget\widget.component.ts</code></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { Component, Inject, OnInit } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/core"</span>;
+<span class="hljs-keyword">import</span> { PHONE_SERVICE } <span class="hljs-keyword">from</span> <span class="hljs-string">"../phones/shared/phone.service"</span>;
+<span class="hljs-meta">@Component</span>({
+  selector: <span class="hljs-string">"app-widget"</span>,
+  template: <span class="hljs-string">`
+    &lt;h3&gt;Angular Widget&lt;/h3&gt;
+    &lt;p&gt;
+      {{phones.length}} phones found.
+    &lt;/p&gt;
+  `</span>
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> WidgetComponent <span class="hljs-keyword">implements</span> OnInit {
+  phones: <span class="hljs-built_in">any</span>[] = [];
+
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">@Inject(PHONE_SERVICE</span>) private phoneService: any) {}
+
+  ngOnInit(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-keyword">this</span>.phones = <span class="hljs-keyword">this</span>.phoneService.query();
+  }
+}
+</div></code></pre>
+<p>Run the application and you should see a count of phones in the Angular Widget as shown below.</p>
+<p><img src="readme-assets/upgrade-service.png" alt="Upgrade Service"></p>
+<p><em>We now have an AngularJS component with an Angular Component that is displaying data from an AngularJS service.</em></p>
+<p>Instead of nesting AngularJS and Angular stuff, we also need the possibility to activate routes from both versions. We will explore this in the next couple sections.</p>
+<div style="page-break-after: always;"></div>
+<h2 id="step-7-routing-to-angular-components-using-the-angularjs-router">Step 7: Routing to Angular Components (using the AngularJS Router)</h2>
+<p>Making the AngularJS Router activate Angular components is quite easy.</p>
+<ol>
+<li>Configure a route with a template that points to the component in question.</li>
+</ol>
+<p><code>src\angularjs\app.config.js</code></p>
+<pre class="hljs"><code><div>angular.module("phonecatApp").config([
+  "$locationProvider",
+  "$routeProvider",
+  function config($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix("!");
+
+    $routeProvider
+      .when("/phones", {
+        template: "&lt;phone-list&gt;&lt;/phone-list&gt;"
+      })
+      .when("/phones/:phoneId", {
+        template: "&lt;phone-detail&gt;&lt;/phone-detail&gt;"
+      })
+<span class="hljs-addition">+      .when("/widget", {</span>
+<span class="hljs-addition">+        template: "&lt;app-widget&gt;&lt;/app-widget&gt;"</span>
+<span class="hljs-addition">+      })</span>
+      .otherwise("/phones");
+  }
+]);
+</div></code></pre>
+<ol start="2">
+<li>Open the application and change the url from: http://localhost:4200/#!/phones to: http://localhost:4200/#!/widget
+and you should see just the widget rendered as shown below.</li>
+</ol>
+<p><img src="readme-assets/widget-via-route.png" alt="widget-via-route"></p>
+<p>While this solution is very easy, it also comes with a drawback. We cannot leverage the new Angular Router for the newly written components. We will explore how we can use the Angular Router in the next sections.</p>
+<div style="page-break-after: always;"></div>
+<h2 id="step-8-angularjs-views-inside-the-root-angular-component">Step 8: AngularJS Views inside the Root Angular Component</h2>
+<ol>
+<li>In src\index.html and the Angular root component (<code>AppComponent</code>) and remove the <code>ng-view</code> directive.</li>
+</ol>
+<pre class="hljs"><code><div>&lt;body&gt;
+<span class="hljs-deletion">-  &lt;div class="view-container"&gt;</span>
+<span class="hljs-deletion">-    &lt;div ng-view class="view-frame"&gt;&lt;/div&gt;</span>
+<span class="hljs-deletion">-  &lt;/div&gt;</span>
+<span class="hljs-addition">+  &lt;app-root&gt;&lt;/app-root&gt;</span>
+&lt;/body&gt;
+</div></code></pre>
+<ol start="2">
+<li>Open <code>src\app.component.html</code></li>
+</ol>
+<ul>
+<li>delete everything in the file</li>
+<li>add the <code>ng-view</code> directive as shown below</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"view-container"</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">ng-view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"view-frame"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+<ol start="3">
+<li>Bootstrap <code>AppComponent</code> in <code>AppModule</code></li>
+</ol>
+<pre class="hljs"><code><div>@NgModule({
+  declarations: [AppComponent, WidgetComponent],
+  imports: [BrowserModule, UpgradeModule],
+  entryComponents: [WidgetComponent],
+  providers: [phoneServiceProvider],
+<span class="hljs-addition">+  bootstrap: [AppComponent]</span>
+})
+export class AppModule {}
+</div></code></pre>
+<ol start="4">
+<li>Remove the following code from AppModule</li>
+</ol>
+<ul>
+<li>inject <code>upgradeModule</code></li>
+<li>bootstrap application manually</li>
+</ul>
+<pre class="hljs"><code><div>export class AppModule {
+<span class="hljs-deletion">-  constructor(private upgrade: UpgradeModule) {}</span>
+<span class="hljs-deletion">-  ngDoBootstrap() {</span>
+<span class="hljs-deletion">-    this.upgrade.bootstrap(document.body, ["phonecatApp"], { strictDi: true -});</span>
+<span class="hljs-deletion">-  }</span>
+}
+</div></code></pre>
+<ol start="5">
+<li>Add code to bootstrap the application in the <code>ngOnInit</code> lifecycle hook of the <code>AppComponent</code> to manually bootstrap the application.</li>
+</ol>
+<pre class="hljs"><code><div><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppComponent <span class="hljs-keyword">implements</span> OnInit {
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">private</span> upgrade: UpgradeModule</span>) {}
+
+  ngOnInit(): <span class="hljs-built_in">void</span> {
+    <span class="hljs-keyword">this</span>.upgrade.bootstrap(<span class="hljs-built_in">document</span>.body, [<span class="hljs-string">"phonecatApp"</span>]);
+  }
+}
+</div></code></pre>
+<p><em>Be sure you are implementing the component lifecycle hook <code>ngOnInit</code> and NOT <code>ngDoBoostrap</code> as we did in the module.</em></p>
+<ol start="6">
+<li>Reload the application and see the Angular application component contains the ng-view and is hosting the AngularJS application.</li>
+</ol>
+<p><img src="readme-assets/app-root-parent.png" alt="App Root"></p>
+<div style="page-break-after: always;"></div>
+<h2 id="step-9-sibling-routers">Step 9: Sibling Routers</h2>
+<ol>
+<li>Add the Angular directive <code>router-outlet</code></li>
+</ol>
+<p><code>src/angular/app/app.component.html</code></p>
+<pre class="hljs"><code><div>&lt;div class="view-container"&gt;
+     &lt;div ng-view class="view-frame"&gt;&lt;/div&gt;
+<span class="hljs-addition">+    &lt;router-outlet&gt;&lt;/router-outlet&gt;</span>
+ &lt;/div&gt;
+</div></code></pre>
+<p><em>You can ignore the error message 'router-outlet' is not a known element. It will be gone after we complete the next few steps.</em></p>
+<ol start="2">
+<li>Configure the Angular Router.</li>
+</ol>
+<p><code>src\angular\app\app.module.ts</code></p>
+<pre class="hljs"><code><div><span class="hljs-addition">+ import { WidgetComponent } from "./widget/widget.component";</span>
+<span class="hljs-addition">+ import { RouterModule } from "@angular/router";</span>
+
+angular.module('phonecatApp')
+   .directive(
+     'ng2Demo',angular.module('phonecatApp')
+   ],
+   imports: [
+     BrowserModule,
+    UpgradeModule,
+<span class="hljs-addition">+    RouterModule.forRoot([</span>
+<span class="hljs-addition">+      {</span>
+<span class="hljs-addition">+        path: "widget",</span>
+<span class="hljs-addition">+        component: WidgetComponent</span>
+<span class="hljs-addition">+      }</span>
+<span class="hljs-addition">+    ],</span>
+<span class="hljs-addition">+    {</span>
+<span class="hljs-addition">+      useHash: true</span>
+<span class="hljs-addition">+    }</span>
+<span class="hljs-addition">+    )</span>
+   ],
+   entryComponents: [
+     Ng2DemoComponent // Don't forget this!!!
+   ],
+   providers: [
+    phoneServiceProvider
+   ],
+   bootstrap: [AppComponent]
+ })
+</div></code></pre>
+<ol start="3">
+<li>Create a custom url handling strategy class to inform the router which routes should be handled by the AngularJS router and which should be handled by the Angular router.</li>
+</ol>
+<p><code>src\angular\app\app.module.ts</code></p>
+<pre class="hljs"><code><div>...
+<span class="hljs-keyword">import</span> { RouterModule, UrlHandlingStrategy } <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/router"</span>;
+
+<span class="hljs-keyword">class</span> CustomUrlHandlingStrategy <span class="hljs-keyword">implements</span> UrlHandlingStrategy {
+  shouldProcessUrl(url) {
+    <span class="hljs-keyword">return</span> url.toString().startsWith(<span class="hljs-string">"/widget"</span>) || url.toString() === <span class="hljs-string">"/"</span>;
+  }
+  extract(url) {
+    <span class="hljs-keyword">return</span> url;
+  }
+  merge(url, whole) {
+    <span class="hljs-keyword">return</span> url;
+  }
+}
+</div></code></pre>
+<ol start="4">
+<li>Provide the <code>CustomUrlHandlingStrategy</code>.</li>
+</ol>
+<p><code>src\angular\app\app.module.ts</code></p>
+<pre class="hljs"><code><div>...
+entryComponents: [
+     Ng2DemoComponent // Don't forget this!!!
+   ],
+   providers: [
+    phoneServiceProvider,
+<span class="hljs-addition">+    { provide: UrlHandlingStrategy, useClass: CustomUrlHandlingStrategy }</span>
+   ],
+...
+</div></code></pre>
+<ol start="5">
+<li>Remove the hashPrefix ! from AngularJS router configuration as well as the route for the widget (since it is now configured in the Angular router) and have the default route redirect to an empty template.</li>
+</ol>
+<p><code>src\angularjs\app.config.js</code></p>
+<pre class="hljs"><code><div>angular.module(<span class="hljs-string">"phonecatApp"</span>).config([
+  <span class="hljs-string">"$locationProvider"</span>,
+  <span class="hljs-string">"$routeProvider"</span>,
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">config</span>(<span class="hljs-params">$locationProvider, $routeProvider</span>) </span>{
+    <span class="hljs-comment">//$locationProvider.hashPrefix("!");</span>
+
+    $routeProvider
+      .when(<span class="hljs-string">"/phones"</span>, {
+        template: <span class="hljs-string">"&lt;phone-list&gt;&lt;/phone-list&gt;"</span>
+      })
+      .when(<span class="hljs-string">"/phones/:phoneId"</span>, {
+        template: <span class="hljs-string">"&lt;phone-detail&gt;&lt;/phone-detail&gt;"</span>
+      })
+      <span class="hljs-comment">// .when("/widget", {</span>
+      <span class="hljs-comment">//   template: "&lt;app-widget&gt;&lt;/app-widget&gt;"</span>
+      <span class="hljs-comment">// })</span>
+      <span class="hljs-comment">//.otherwise("/phones");</span>
+      .otherwise({ template: <span class="hljs-string">""</span> });
+  }
+]);
+</div></code></pre>
+<ol start="6">
+<li>Add a navigation menu to the <code>AppComponent</code> template at the top of the page that allows you to switch between AngularJS and Angular routes.</li>
+</ol>
+<p><code>src\angular\app\app.component.html</code></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">routerLink</span>=<span class="hljs-string">"widget"</span>&gt;</span>Widget<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> |
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#/phones"</span>&gt;</span>Phones<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</div></code></pre>
+<ol start="7">
+<li>The application should initially show just the navigation and route to either an AngularJS (Phones) or an Angular (Widget) component depending on which you choose.</li>
+</ol>
+<p><img src="readme-assets/navigation.png" alt="nav">
+<img src="readme-assets/nav-widget.png" alt="nav-widget">
+<img src="readme-assets/nav-phones.png" alt="nav-phones"></p>
+
+</body>
+</html>

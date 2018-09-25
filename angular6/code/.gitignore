@@ -1,0 +1,12 @@
+node_modules
+.idea
+.vscode
+.DS_Store
+labs/**/*.js
+labs/**/*.js.map
+challenges/**/*.js
+challenges/**/*.js.map
+demos/**/*.js
+demos/**/*.js.map
+snippets/**/*.js
+snippets/**/*.js.map

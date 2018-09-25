@@ -1,0 +1,10 @@
+<div class="form-group">
+    <label for="contractType">Contract Type</label>
+    <select class="form-control"
+            name="contractTypeId" id="contractType"
+            [ngModel]="project.contractTypeId">
+        <option *ngFor="let contractType of contractTypes" [value]="contractType.id" >
+            {{contractType.name}}
+        </option>
+    </select>
+</div>

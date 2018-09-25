@@ -1,0 +1,16 @@
+<h4>Echo Chamber</h4>
+<p>Welcome to the echo chamber.  Enter a message and it will be echoed back to you.</p>
+
+<div class="thumbnail col-md-2">
+
+    <form (ngSubmit)="send(message.value)">
+        <div class="form-group">
+            <label class="control-label" for="message">Message</label>
+            <input id="message" class="form-control" type="text"
+                   #message placeholder="enter message">
+        </div>
+    </form>
+
+    <p *ngFor="let echo of echoes">{{echo}}</p>
+</div>
+

@@ -1,0 +1,11 @@
+<div class="row">
+    <ul class="list-group-item" class="col-md-6">
+        <li *ngFor="let movie of movies" class="list-group-item">
+            <a [routerLink]="['detail', movie.id ]">{{movie.name}}</a>
+        </li>
+        
+    </ul>
+    <div class="col-md-6">
+            <router-outlet></router-outlet>
+        </div>
+</div>

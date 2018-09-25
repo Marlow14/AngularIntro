@@ -1,0 +1,55 @@
+<form #projectForm="ngForm" class="project-form"
+      *ngIf="project.editing"
+      (ngSubmit)="onSave(projectForm)">
+    <div class="thumbnail" >
+        <div class="caption">
+            <div ngModelGroup="project">
+                <div class="form-group">
+                    <label class="control-label" for="projectName">Name</label>
+                    <input [ngModel]="project.name" #nameDirective="ngModel"
+                           class="form-control" type="text"
+                           id="projectName" name="name"
+                           placeholder="enter name" autofocus
+                           required minlength="3"
+                           #nameControl
+                           >
+                    <p class="well">{{nameControl.className}}</p>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Description</label>
+                    <textarea [ngModel]="project.description"
+                              #descriptionDirective="ngModel"
+                              class="form-control"
+                              id="projectDescription" name="description"
+                              rows="1" placeholder="enter description">
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="isActive">Active?</label>
+                    <input [ngModel]="project.isActive"
+                           type="checkbox" class="form-control" name="isActive"
+                           id="isActive" name="isActive" />
+                </div>
+                <div class="form-group">
+                    <label for="contractType">Contract Type</label>
+                    <select class="form-control"
+                            name="contractTypeId" id="contractType"
+                            [ngModel]="project.contractTypeId">
+                        <option *ngFor="let contractType of contractTypes"
+                                [value]="contractType.id" >
+                            {{contractType.name}}
+                        </option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="btn-group">
+                <button class="btn btn-info btn-sm" >
+                    Save
+                </button>
+                <a class="btn-cancel" href="" (click)="onCancel(project, $event)">cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
