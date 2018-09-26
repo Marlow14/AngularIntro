@@ -10,32 +10,44 @@ import { ProjectService} from '../shared/project.service';
   templateUrl: `./project-list.component.html`,
 })
 export class ProjectListComponent implements OnInit {
-  projects: Project[] = PROJECTS;
+  errorMessage: string;
+  // projects: Project[] = PROJECTS;
+  projects: Project[];
 
   constructor(private projectService: ProjectService) {}
 
   ngOnInit() {
     this.projectService
       .list()
-      .subscribe(projectData => (this.projects = projectData));
+      .subscribe(projectData => (this.projects = projectData),
+      error => (this.errorMessage = error));
   }
 
   onEdit(project) {
-    project.originalProject = Object.assign({}, project);
+    // project.originalProject = Object.assign({}, project);
     project.editing = true;
   }
 
   onCancel(project) {
     // event.preventDefault();
-    this.projects[this.projects.indexOf(project)] = project.originalProject;
+    // this.projects[this.projects.indexOf(project)] = project.originalProject;
     project.editing = false;
     // this.closeDropdown();
   }
 
   onSave(updatedProject){
     updatedProject.editing = false;
-    let index = this.projects.findIndex(p => p.id == updatedProject.id);
-    this.projects[index] = updatedProject;
+    this.projectService.put(updatedProject).subscribe(p=> {
+      let index = this.projects.findIndex(p => p.id == updatedProject.id);
+      this.projects[index] = updatedProject;
+    }, error => (this.errorMessage = error));
+    // let index = this.projects.findIndex(p => p.id == updatedProject.id);
+    // this.projects[index] = updatedProject;
+  }
+
+  onDelete(project: Project){
+    this.projectService.delete(project).subscribe(() => this.projects = this.projects.filter(p => p.id != project.id),
+    (error) => this.errorMessage = error)
   }
 
   // currentDropdownIndex: number = -1;

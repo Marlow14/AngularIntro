@@ -1,5 +1,4 @@
 import { AbstractControl } from '@angular/forms';
-import { CustomValidators } from '../../../../../solutions/angular/lab17-forms_reactive_custom_validator/app/shared/custom.validators';
 
 
 export class CustomValidators{

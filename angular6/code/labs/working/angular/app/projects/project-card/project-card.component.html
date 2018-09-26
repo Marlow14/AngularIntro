@@ -1,11 +1,11 @@
 <div class="project-detail" *ngIf="!project.editing">
   <div class="thumbnail">
 
-    <img class="img-rounded img-responsive" [src]="project.imageUrl" [alt]="project.name + ' image'">
+    <img class="img-rounded img-responsive" [src]="project.imageUrl" [alt]="project.name + ' image'" (click)="onSelect(project, $event)">
 
     <div class="caption">
-      <h4>{{project.name}}</h4>
-      <p> {{project.description}}</p>
+      <h4 (click)="onSelect(project, $event)">{{project.name}}</h4>
+      <p (click)="onSelect(project, $event)"> {{project.description}}</p>
       <!-- <button class="btn btn-default" (click)="onEdit(project)">Edit</button> -->
 
 <div class="dropdown" [ngClass]="getDropdownCssClasses()">
@@ -29,7 +29,7 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="#" (click)="onDelete(project, $event)">
         <i class="fa fa-trash-o"></i>&nbsp; Delete
       </a>
     </li>

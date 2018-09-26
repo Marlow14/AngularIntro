@@ -1,11 +1,11 @@
-
-
-
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{errorMessage}}
+</div>
 
 <div class="col-xs-18 col-sm-6 col-md-3"
      *ngFor="let project of projects; let currentIndex=index;">
 
-    <project-card [project]="project" *ngIf="!project.editing" (edit)="onEdit($event)"></project-card>
+    <project-card [project]="project" *ngIf="!project.editing" (edit)="onEdit($event)" (delete)=onDelete($event)></project-card>
 
     <project-form [project]="project" *ngIf="project.editing" (cancel)="onCancel($event)" (save)="onSave($event)"></project-form>
 </div>
