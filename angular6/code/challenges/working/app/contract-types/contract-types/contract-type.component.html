@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-18 col-sm-6 col-md-3">
+      <ul class="list-group">
+        <li *ngFor="let contractType of ContractTypes" class="list-group-item">
+          <label (click)="edit(contractType)">
+            {{contractType.name}}
+          </label>
+
+          <input type="text" *ngIf="contractType.editing" (keydown.escape)="onEscape(contractType, $event)" (blur)="onBlur(contractType)"
+            (keyup.enter)="onEnter(contractType)" value="{{contractType.name}}"(input)="contractType.name = $event.target.value" >
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

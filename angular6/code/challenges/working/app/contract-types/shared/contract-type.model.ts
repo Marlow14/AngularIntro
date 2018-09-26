@@ -1,3 +1,5 @@
 export class ContractType {
-  constructor(public id: number, public name: string) {}
-}
+         editing: boolean = false;
+         editingContract: ContractType;
+         constructor(public id: number, public name: string) {}
+       }
